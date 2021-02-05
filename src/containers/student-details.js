@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getStudentDetails,clearStudentDetails } from '../actions'
-const StudentDetails = ({ getStudentDetails,clearStudentDetails, details, match }) => {
+import { getStudentDetails,clearStudentDetails,deleteStudent } from '../actions'
+const StudentDetails = ({ getStudentDetails,clearStudentDetails,deleteStudent, details, match }) => {
     const id = match.params.id
     console.log(id)
     useEffect(() => {
@@ -15,6 +15,9 @@ const StudentDetails = ({ getStudentDetails,clearStudentDetails, details, match 
             clearStudentDetails()
         }
     },[])
+    // const deleteStudent = (id)=>{
+    //     deleteStudent(id)
+    // }
 
     const renderStudentDetails = (details) => {
         if (details && details.id) {
@@ -25,9 +28,9 @@ const StudentDetails = ({ getStudentDetails,clearStudentDetails, details, match 
                         <div className="bg-dark text-white pt-4 pb-3">
                         <h5> Age: <span>{details.age}</span> </h5>
                         <h5> Phone: <span>{details.phone}</span> </h5>
-                        <button className="btn btn-danger" onClick={
-                            ()=>{window.confirm("Are you Sure, you want to delete this student?")}
-                            }>Delete</button>
+                        <button className="btn btn-danger" > 
+                        {/* onClick={deleteStudent(id)} */}
+                            Delete</button>
                         </div>
                     </div>   
                                   

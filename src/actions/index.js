@@ -38,6 +38,28 @@ export const getStudentDetails = async (id) => {
     }
 
 }
+export const deleteStudent = async (id) => {
+    if (window.confirm("Are you Sure, you want to delete this student?")){
+        let payload;
+        try{
+            let response = await fetch(`${baseURL}/${id}`,{
+                method:'DELETE',
+                header:{'Accept':'application/json',
+                'Content_Type' : 'application/json'
+            }
+            })
+            payload = await response.json()
+            console.log(payload)
+        }
+        catch(err){
+            console.log(err)
+        }
+        return {
+            type: 'STUDENT_DELETE',
+            payload
+        }
+}
+}
 
 export const clearStudentDetails = ()=>{
     return {

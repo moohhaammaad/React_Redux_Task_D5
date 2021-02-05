@@ -15,6 +15,9 @@ export const students = (state={},action)=>{
         case 'CLEAR_STUDENT_DETAILS':{
             return{...state,details:action.payload}
         }
+        case 'STUDENT_DELETE':{
+            return{...state,details:action.payload}
+        }
         // case 'ADD_STUDENT ':{
         //     const students = state.students.concat(action.payload);
         //     return{...state, students}
